@@ -1,0 +1,1247 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; /* Neutral text color for contrast */
+    background-color: #f9f9f9; /* Off-white background */
+    text-align: left; /* Ensures all body text is left-aligned */
+}
+
+/* Shared Page Title Styling */
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333; /* Dark Gray */
+    margin-top: 50px; /* Adjust this to match the About Us page buffer */
+    margin-bottom: 0px; /* Spacing below the title */
+    position: relative;
+    text-align: left; /* Ensure consistent alignment */
+    padding: 0px 300px;
+}
+
+.page-title::after {
+    content: "";
+    display: block;
+    width: 100%; /* Length of the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: #183866; /* Underline color */
+    margin: 10px 0px 0; /* Center align with spacing */
+}
+
+
+/* Logo Styling */
+.logo {
+    height: 50px; /* Adjust based on desired size */
+    width: auto; /* Ensures aspect ratio is maintained */
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px; /* Space between logo and nav links */
+}
+
+/* Header (Navigation Bar) */
+header {
+    background: #183866; /* Accent color for header */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky; /* Sticks the header to the top */
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    background: #183866; /* Matches header */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background: #f9f9f9; /* Off-white hover effect */
+    color: #183866;
+    border-radius: 5px;
+}
+
+/* Navigation Container */
+.navbar .container {
+    display: flex;
+    align-items: center; /* Align items (logo and nav) vertically */
+    justify-content: space-between; /* Space out logo and menu */
+    padding: 0 20px; /* Add padding around edges */
+}
+
+/* Center the Menu */
+nav {
+    flex-grow: 1; /* Allow nav to take up space */
+    text-align: center; /* Center-align the menu items */
+}
+
+nav ul {
+    display: inline-flex; /* Ensure items stay inline */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px; /* Space between menu items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff; /* Match your desired text color */
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f9f9f9; /* Adjust hover effect */
+}
+
+/* Adjust Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background-color: #183866; /* Fallback for hero image load issues */
+}
+
+.hero .hero-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.hero .overlay-box {
+    position: absolute; /* Position it relative to the .hero container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 56, 102, 0.4); /* Semi-transparent box color */
+    display: flex; /* Center content within the box */
+    align-items: center;
+    justify-content: center;
+    color: white; /* Text color */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hero .overlay-box h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.hero .overlay-box p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.hero .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 90%;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #f9f9f9; /* Text color off-white for contrast */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #f9f9f9;
+}
+
+/* Sections */
+section {
+    padding: 50px 300px;
+    text-align: left;
+}
+/* Home Page Specific Section Styling */
+.home-page .hero {
+    padding: 50px 20px; /* Smaller padding specifically for the hero section on the home page */
+}
+/* About in Home */
+
+.about {
+    background: #f9f9f9; /* Off-white background */
+}
+
+.about h1 {
+    color: #183866; /* Accent color for headings */
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #555; /* Muted gray for text */
+    line-height: 1.8;
+}
+
+/* Carousel */
+
+.carousel-section {
+    padding: 50px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    position: relative;
+    height: 500px; /* Increased height for larger images */
+    align-items: center;
+    justify-content: center;
+    background-color: #183866; /* Dark blue background for contrast */
+    border-radius: 8px; /* Optional rounded corners */
+    overflow: hidden;
+}
+
+.carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop top and bottom */
+    border-radius: 8px; /* Matches carousel background rounding */
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #f9f9f9;
+    border: 2px solid #183866; /* Optional: Dark blue outline for better visibility */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.7s;
+}
+
+.carousel-dot.active {
+    background-color: #183866; /* Highlight active dot */
+}
+
+.view-projects-button {
+    background-color: #f9f9f9; /* Off-white background */
+    padding: 30px 20px;
+    text-align: center; /* Center the button horizontally */
+}
+
+.view-projects-button .btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #183866; /* Dark blue for the button */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.view-projects-button .btn:hover {
+    background-color: #457b9d; /* Lighter blue on hover */
+}
+
+
+/* About Page */
+.about-hero {
+    background-color: #f9f9f9; /* Light background */
+    padding: 50px 0; /* Vertical spacing */
+}
+
+.about-hero .hero-text {
+    max-width: 1200px; /* Ensure alignment with the content width */
+    margin: 0 auto; /* Center horizontally within the container */
+    text-align: left; /* Align all text to the left */
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+.about-hero h1 {
+    font-size: 3rem; /* Adjust font size for the title */
+    font-weight: bold;
+    margin: 0 0 10px; /* Add spacing below the title */
+    color: #333; /* Dark text color */
+}
+
+.about-hero h1::after {
+    content: ""; /* Add underline below the title */
+    display: block;
+    width: 15%; /* Adjust the width of the underline */
+    height: 3px; /* Thickness of the underline */
+    background-color: #183866; /* Dark blue underline color */
+    margin: 10px 0; /* Adjust spacing below the underline */
+}
+
+.about-hero p {
+    font-size: 1.2rem; /* Slightly larger font for the paragraph */
+    color: #555; /* Muted gray text color */
+    line-height: 1.8; /* Improve readability */
+    margin: 15px 0 0; /* Adjust spacing above the paragraph */
+    text-align: left; /* Left-align the paragraph */
+}
+
+/* Company Overview Section */
+.about-overview {
+    padding: 50px 20px; /* Spacing for the section */
+    background-color: #ffffff; /* White background for the overview section */
+}
+
+.about-overview .container {
+    display: flex;
+    gap: 20px; /* Space between left and right sections */
+    align-items: flex-start; /* Align content to the top */
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+}
+
+.about-overview .about-left {
+    flex: 1; /* Equal space for the left section */
+}
+
+.about-overview h2 {
+    font-size: 2rem; /* Section title size */
+    font-weight: bold;
+    color: #333; /* Match the title color */
+    margin-bottom: 15px; /* Space below the title */
+    text-align: left; /* Left-align title to match text */
+}
+
+.about-overview p {
+    font-size: 1.1rem; /* Adjust text size */
+    color: #555; /* Muted gray text */
+    line-height: 1.8;
+    margin-bottom: 15px; /* Space between paragraphs */
+    text-align: left; /* Left-align text */
+}
+
+.about-overview .about-right {
+    flex: 1; /* Equal space for the right section */
+}
+
+.about-overview .about-right img {
+    width: 100%; /* Responsive image size */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Adjust spacing for smaller screens */
+@media (max-width: 768px) {
+    .about-overview .container {
+        flex-direction: column; /* Stack sections vertically */
+        gap: 30px; /* Increase spacing between sections */
+    }
+
+    .about-overview h2 {
+        text-align: left; /* Keep title left-aligned for smaller screens */
+    }
+
+    .about-overview p {
+        text-align: left; /* Keep text left-aligned for smaller screens */
+    }
+}
+
+
+
+
+/* Core Values Section */
+.core-values {
+    background-color: #183866; /* Dark blue background */
+    color: #ffffff; /* White text */
+    padding: 30px 20px; /* Reduce top and bottom padding */
+}
+
+.core-values h2 {
+    font-size: 2rem; /* Section title size */
+    font-weight: bold;
+    color: #ffffff; /* White text for the section title */
+    margin: 0px 150px 0px; /* Remove top margin and keep space below */
+    text-align: left; /* Left-align title */
+}
+
+.values-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Wrap content for smaller screens */
+}
+
+.value-item {
+    flex: 1;
+    text-align: left; /* Left-align text */
+    padding: 0 15px;
+}
+
+.value-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* White heading */
+    margin-bottom: 10px;
+    text-align: left; /* Left-align title */
+}
+
+.value-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #f9f9f9; /* Slightly muted white */
+    text-align: left; 
+}
+
+/* Team Profiles Section */
+.team-profiles {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Light gray background for contrast */
+    text-align: left; 
+}
+
+.team-profiles h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Dark title color */
+    margin-bottom: 30px;
+    text-align: left; /* Left-align title */
+    padding: 0px 150px;
+}
+
+.team-grid {
+    display: flex;
+    gap: 0px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Responsive design for smaller screens */
+}
+
+.team-member {
+    flex: 1;
+    text-align: left; /* Left-align member details */
+    padding: 0px 15px;
+}
+
+.team-member h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #183866; /* Dark blue for member name */
+    margin-bottom: 0px;
+    text-align: left; /* Ensure the name is left-aligned */
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #555; /* Muted gray for designation */
+    text-align: left; /* Ensure the position is left-aligned */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-overview .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .values-grid {
+        flex-direction: column;
+        text-align: center; /* Center-align for smaller screens */
+    }
+
+    .team-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #183866; /* Dark blue background */
+    color: #f9f9f9; /* Off-white text */
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Distribute sections evenly */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Handle smaller screens */
+}
+
+/* Contact Section footer */
+.footer-contact {
+    flex: 1; /* Equal space allocation */
+    text-align: left; /* Align text to the left */
+}
+
+.footer-contact h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #f9f9f9;
+}
+
+.footer-contact p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 10px 0 0;
+}
+
+/* Navigation Section */
+.footer-navigation {
+    flex: 1; /* Equal space allocation */
+    text-align: center; /* Center-align the navigation items */
+}
+
+.footer-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    gap: 20px; /* Space between nav items */
+}
+
+.footer-navigation ul li {
+    margin: 0;
+}
+
+.footer-navigation ul li a {
+    color: #f9f9f9; /* Match text color */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-navigation ul li a:hover {
+    color: #ddd; /* Slightly lighter on hover */
+}
+
+/* Copyright Section */
+.footer-copyright {
+    flex: 1; /* Equal space allocation */
+    text-align: right; /* Align text to the right */
+    font-size: 0.8rem;
+    color: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center-align content */
+        text-align: center;
+    }
+
+    .footer-contact,
+    .footer-navigation,
+    .footer-copyright {
+        text-align: center; /* Center-align all sections */
+    }
+}
+
+/* Properties Section (if applicable) */
+.properties h2 {
+    color: #183866; /* Accent color for section headings */
+    margin-bottom: 20px;
+}
+
+.properties p {
+    color: #555;
+}
+
+/* Contact Section */
+.contact h2 {
+    color: #183866; /* Accent color for section headings */
+}
+
+.contact p {
+    color: #333; /* Neutral text color */
+}
+
+.contact a {
+    color: #183866;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+/* About Hero Section */
+.about-hero .hero-text h1 {
+    font-size: 2.5rem; /* Adjust font size for title */
+    font-weight: bold;
+    margin: 0 0 10px; /* Add space below the title */
+    color: #333; /* Black text for title */
+    position: relative; /* Position needed for line styling */
+}
+
+.about-hero .hero-text h1::after {
+    content: ""; /* Empty content for the line */
+    display: block;
+    width: 100%; /* Adjust the width of the line */
+    height: 2px; /* Thickness of the line */
+    background-color: #183866; /* Thin blue line */
+    margin: 10px 0 0; /* Center the line and add spacing */;
+}
+
+.about-overview {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Light background */
+}
+
+.about-overview .container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-left {
+    flex: 1;
+}
+
+.about-left h2 {
+    margin: 0; /* Reset margins to rely on parent container's spacing */
+}
+
+
+.about-right {
+    flex: 1;
+}
+
+.about-right img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.core-values {
+    background-color: #183866;
+    color: #f9f9f9;
+    padding: 50px 20px;
+}
+
+.core-values .values-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.value-item {
+    flex: 1;
+    text-align: center;
+}
+
+.value-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.team-profiles {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.team-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member {
+    text-align: center;
+    flex: 1;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+/* Properties Section */
+.properties {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+}
+
+.properties h1 {
+    text-align: center;
+    color: #183866;
+    margin-bottom: 30px;
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.property-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.property-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.property-info {
+    padding: 15px;
+}
+
+.property-info h2 {
+    color: #183866;
+    margin-bottom: 10px;
+}
+
+.property-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+
+
+
+
+
+
+
+#propertiesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+    gap: 20px; /* Adds space between cards */
+    padding: 20px; /* Adds padding around the grid */
+}
+
+.property-card {
+    background-color: #f9f9f9; /* Light background for cards */
+    border: 1px solid #ddd; /* Subtle border for cards */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Ensures content stays within card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    text-align: center;
+    padding: 10px;
+}
+
+.property-card img {
+    width: 100%; /* Ensures the image fits the card width */
+    height: auto; /* Maintains image aspect ratio */
+    border-bottom: 1px solid #ddd; /* Adds a dividing line under the image */
+}
+
+.property-card h3 {
+    font-size: 1.2rem;
+    color: #183866; /* Accent color for headings */
+    margin: 10px 0;
+}
+
+.property-card p {
+    font-size: 0.9rem;
+    color: #555; /* Subtle color for text */
+    margin: 5px 0;
+}
+
+
+.property-details h3 a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the same color as the surrounding text */
+    font-family: inherit; /* Ensure it matches the parent font */
+    font-size: inherit; /* Ensure it matches the parent font size */
+    font-weight: bold; /* Match the original style */
+}
+
+.property-details h3 a:hover {
+    color: #183866; /* Optional: Add a hover color to indicate it's clickable */
+    text-decoration: underline; /* Optional: Add underline on hover for accessibility */
+}
+
+
+
+/* Property Pages Styling */
+
+/* Page Title */
+.property-page .page-title {
+    text-align: left; /* Align the title with the text */
+    font-size: 2.5rem; /* Adjust font size */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #333; /* Dark gray for contrast */
+    margin: 50px 0 10px; /* Adjust spacing above and below the title */
+    padding-left: 20%; /* Match the left alignment with the section below */
+    position: relative; /* For underline styling */
+}
+
+.property-page .page-title::after {
+    content: ""; /* Add underline */
+    display: block;
+    width: 15%; /* Adjust the width of the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: #183866; /* Dark blue underline */
+    margin-top: 10px; /* Spacing below the title */
+}
+
+/* Property Overview */
+.property-overview {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.property-details {
+    flex: 1;
+    text-align: left;
+}
+
+.property-image {
+    flex: 1;
+    text-align: center;
+}
+
+.property-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Property Details Section with image in page */
+.property-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; /* Space between columns */
+    align-items: center; /* Align content vertically */
+    max-width: 1200px;
+    margin: 0 auto; /* Center align the grid */
+}
+
+.property-description {
+    text-align: left; /* Align text to the left */
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.property-thumbnail img {
+    width: 100%; /* Ensure the image fits the container */
+    max-width: 400px; /* Set a max width for the thumbnail */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Add slight rounding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr); /* Two columns */
+    gap: 20px; /* Space between images */
+    max-width: 900px; /* Optional: Limit the gallery width */
+    margin: 0 auto; /* Center the grid */
+}
+
+.gallery-item img {
+    width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    cursor: pointer; /* Indicate clickability */
+    transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
+
+/* Fullscreen Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    margin: 5.4% auto 0; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Investors Section */
+/* Hero Section */
+.investors-hero {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background-color: #183866; /* Match the accent color */
+    padding: 60px 20px;
+}
+
+.investors-hero .hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.investors-hero .hero-text p {
+    font-size: 1.2rem;
+    color: #f9f9f9;
+}
+
+/* Overview Section */
+.investors-overview {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Light background */
+}
+
+.investors-overview .container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.investors-overview .overview-left {
+    flex: 1;
+    text-align: left;
+}
+
+.investors-overview .overview-left h2 {
+    font-size: 2rem;
+    color: #183866;
+    margin-bottom: 20px;
+}
+
+.investors-overview .overview-left p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.investors-overview .overview-right {
+    flex: 1;
+    text-align: right;
+}
+
+.investors-overview .overview-right img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Documents Section */
+.investor-documents {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.investor-documents h2 {
+    font-size: 2rem;
+    color: #183866;
+    margin-bottom: 20px;
+}
+
+.investor-documents .document-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.investor-documents .doc-link {
+    padding: 12px 20px;
+    background-color: #183866;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.investor-documents .doc-link:hover {
+    background-color: #457b9d; /* Lighter blue on hover */
+}
+
+/* Contact Section */
+.contact-investors {
+    padding: 30px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-investors h2 {
+    font-size: 2rem;
+    color: #183866;
+    margin-bottom: 10px;
+}
+
+.contact-investors a {
+    color: #183866;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-investors a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Gallery Section */
+.property-gallery {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptive grid layout */
+    gap: 20px;
+}
+
+.gallery-item img {
+    width: 100%; /* Responsive image width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+
+
+
+
+/* Contact page */
+
+/* Contact Page */
+.contact-page .page-title {
+    text-align: left; /* Align title to the left */
+    font-size: 2.5rem; /* Adjust font size */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #333; /* Dark gray for contrast */
+    margin: 50px 0 10px 0; /* Adjust spacing above and below the title */
+    padding-left: 10%; /* Match the left padding of the section below */
+    position: relative; /* For underline styling */
+}
+
+.contact-page .page-title::after {
+    content: ""; /* Add underline */
+    display: block;
+    width: 100%; /* Fixed width for the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: #183866; /* Dark blue underline */
+    margin-top: 10px; /* Spacing below the title */
+}
+.contact {
+    padding: 50px 5%;
+    background-color: #f9f9f9;
+}
+
+.contact-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    flex: 1;
+    text-align: left;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.contact-info a {
+    color: #183866;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form {
+    flex: 1;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin: 10px 0 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #183866;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #457b9d;
+}
+
+.contact .section-heading {
+    color: #333; /* Subtle gray for these pages */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-grid {
+        flex-direction: column;
+    }
+
+    .contact-info, 
+    .contact-form {
+        text-align: center;
+    }
+}
