@@ -25,9 +25,10 @@ fs.readdir(localImagesFolder, (err, files) => {
 
     // Upload to Cloudinary
     cloudinary.uploader.upload(filePath, {
-      folder: "property_img",  // Cloudinary folder name
-      public_id: propertyName, // Standardized property name
-      overwrite: true
+      folder: "property_img",
+      public_id: propertyName, 
+      overwrite: true,
+      format: "jpg" // Ensure all images use JPG format for consistency
     }, (error, result) => {
       if (error) {
         console.error(`Error uploading ${file}:`, error);

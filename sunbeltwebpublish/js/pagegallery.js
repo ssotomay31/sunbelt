@@ -1,4 +1,3 @@
-// Fullscreen Modal Setup for Gallery
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("fullscreenImage");
@@ -6,7 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.querySelector(".modal .close");
 
     // Attach click events to gallery images
-    document.querySelectorAll(".gallery-grid img").forEach((img) => {
+    const galleryImages = document.querySelectorAll(".gallery-grid img");
+    if (!galleryImages) {
+        console.error("No gallery images found.");
+        return;
+    }
+
+    galleryImages.forEach((img) => {
         img.addEventListener("click", function () {
             modal.style.display = "block";
             modalImg.src = this.src; // Set the modal image source
