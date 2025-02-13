@@ -39,25 +39,25 @@
                 <p><strong>Year Built:</strong> {{YEAR}}</p>
                 <p><strong>Description:</strong> {{DESCRIPTION}}</p>
             </div>
-            <div class="property-thumbnail">
-                <img 
-                    src="../images/property_img/{{THUMBNAIL_IMG}}" 
-                    alt="{{PROPERTY_NAME}}" 
-                    class="thumbnail-image"
-                >
+   <!-- Property Thumbnail -->
+        <div class="property-thumbnail">
+            <img 
+         src="{{THUMBNAIL_IMG}}" 
+         alt="{{PROPERTY_NAME}}" 
+         class="thumbnail-image"
+         onerror="this.onerror=null; this.src='https://res.cloudinary.com/dnculoaat/image/upload/property_img/default.jpg';"
+            >
             </div>
-        </div>
-    </section>
 
-    <!-- Property Gallery -->
-    <section class="property-gallery">
-        <div class="container gallery">
-            <h2 class="section-heading">Gallery</h2>
-            <div class="gallery-grid">
-                {{GALLERY}}
-            </div>
+<!-- Property Gallery -->
+<section class="property-gallery">
+    <div class="container gallery">
+        <h2 class="section-heading">Gallery</h2>
+        <div class="gallery-grid">
+            {{GALLERY}}
         </div>
-    </section>
+    </div>
+</section>    
 
     <!-- Modal for Fullscreen Images -->
     <div id="imageModal" class="modal">
