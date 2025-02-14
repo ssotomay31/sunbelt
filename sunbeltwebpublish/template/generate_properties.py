@@ -13,8 +13,8 @@ cloudinary.config(
 
 # Define paths
 input_csv = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/data/sunbelt.csv"
-output_dir = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/properties"
-template_path = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/template/property_template.html"
+output_dir = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/properties2"
+template_path = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/template/property_templateeee.html"
 
 # Cloudinary Base URL
 cloudinary_base_url = "https://res.cloudinary.com/dnculoaat/image/upload/property_img/"
