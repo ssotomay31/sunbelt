@@ -1,36 +1,38 @@
-require("dotenv").config();
 const express = require("express");
-const axios = require("axios");
 const cors = require("cors");
+const cloudinary = require("cloudinary").v2;
+require("dotenv").config();
 
 const app = express();
-const PORT = 5001; // Change this if needed
+const PORT = process.env.PORT || 5001;
 
-// Allow CORS for all origins (or restrict it to your frontend)
-app.use(cors({
-  origin: "http://127.0.0.1:5500" // Adjust if your frontend is hosted elsewhere
-}));
+app.use(cors()); // Allow frontend requests
 
-// Cloudinary API Configuration
-const cloudinaryBaseURL = `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/image/upload?prefix=carousel/&max_results=10`;
+// Cloudinary Configuration
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
-// Route to fetch carousel images from Cloudinary
+// Fetch images from Cloudinary "carousel" folder
 app.get("/fetch-carousel-images", async (req, res) => {
     try {
-        const response = await axios.get(cloudinaryBaseURL, {
-            headers: {
-                Authorization: `Basic ${Buffer.from(
-                    process.env.CLOUDINARY_API_KEY + ":" + process.env.CLOUDINARY_API_SECRET
-                ).toString("base64")}`
-            }
+        const response = await cloudinary.api.resources({
+            type: "upload",
+            prefix: "carousel/",
+            max_results: 10
         });
 
-        res.json(response.data.resources); // Send image data to frontend
+        const imageUrls = response.resources.map(img => img.secure_url);
+        res.json(imageUrls);
     } catch (error) {
-        console.error("❌ ERROR: Failed to fetch images from Cloudinary", error);
+        console.error("❌ ERROR: Failed to fetch Cloudinary images:", error);
         res.status(500).json({ error: "Failed to fetch images" });
     }
 });
 
-// Start the server
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+// Start server
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
