@@ -1,27 +1,31 @@
-// Fullscreen Modal Setup for Gallery
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("fullscreenImage");
+    const modalImage = document.getElementById("fullscreenImage");
     const captionText = document.getElementById("caption");
-    const closeBtn = document.querySelector(".modal .close");
+    const closeModal = document.querySelector(".close");
 
-    // Attach click events to gallery images
-    document.querySelectorAll(".gallery-grid img").forEach((img) => {
+    if (!modal || !modalImage || !captionText || !closeModal) {
+        console.error("❌ ERROR: Modal elements not found in the DOM. Check HTML structure.");
+        return;
+    }
+
+    // Function to open the modal with the clicked image
+    document.querySelectorAll(".gallery-item img").forEach(img => {
         img.addEventListener("click", function () {
             modal.style.display = "block";
-            modalImg.src = this.src; // Set the modal image source
-            captionText.innerHTML = this.alt || "Image"; // Set caption text
+            modalImage.src = this.src;
+            captionText.innerText = this.alt || "Image Preview";
         });
     });
 
-    // Close modal on clicking the close button
-    closeBtn.addEventListener("click", function () {
+    // Close the modal when clicking the close button
+    closeModal.addEventListener("click", () => {
         modal.style.display = "none";
     });
 
-    // Close modal when clicking outside of the image
-    modal.addEventListener("click", function (e) {
-        if (e.target !== modalImg) {
+    // Close the modal when clicking outside the image
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
             modal.style.display = "none";
         }
     });

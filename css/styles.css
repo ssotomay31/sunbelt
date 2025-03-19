@@ -11,24 +11,23 @@ body {
 
 /* Shared Page Title Styling */
 .page-title {
-    text-align: center;
+    text-align: left; /* Keep left alignment */
     font-size: 2.5rem;
     font-weight: bold;
     color: #333; /* Dark Gray */
-    margin-top: 50px; /* Adjust this to match the About Us page buffer */
-    margin-bottom: 0px; /* Spacing below the title */
-    position: relative;
-    text-align: left; /* Ensure consistent alignment */
-    padding: 0px 300px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 0 20%; /* Use percentage instead of fixed pixels */
+    max-width: 900px; /* Prevent it from stretching too wide */
 }
 
 .page-title::after {
     content: "";
     display: block;
-    width: 100%; /* Length of the underline */
-    height: 2px; /* Thickness of the underline */
-    background-color: #183866; /* Underline color */
-    margin: 10px 0px 0; /* Center align with spacing */
+    width: 30%; /* Reduce underline width */
+    height: 2px;
+    background-color: #183866;
+    margin-top: 10px;
 }
 
 
@@ -136,8 +135,10 @@ nav ul li {
 }
 
 .hero .hero-image {
-    width: 100%;
-    height: 300px;
+    width: 100%; /* Ensures it takes up full width */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 500px; /* Optional: Limit max height for consistency */
+    object-fit: cover; /* Ensures it crops properly instead of stretching */
 }
 
 .hero .overlay-box {
@@ -199,9 +200,15 @@ section {
 /* About in Home */
 
 .about {
-    background: #f9f9f9; /* Off-white background */
+    display: flex;
+    flex-wrap: wrap; /* Allow elements to stack on smaller screens */
+    justify-content: space-between; /* Ensures spacing between left and right */
+    align-items: center; /* Vertically centers content */
+    max-width: 1200px; /* Limit width for better readability */
+    margin: 0 auto; /* Centers the section */
+    padding: 50px 10%; /* Adjusts padding for responsiveness */
+    gap: 20px; /* Adds spacing between left and right sides */
 }
-
 .about h1 {
     color: #183866; /* Accent color for headings */
     font-size: 2rem;
@@ -333,7 +340,7 @@ section {
     font-size: 1.2rem; /* Slightly larger font for the paragraph */
     color: #555; /* Muted gray text color */
     line-height: 1.8; /* Improve readability */
-    margin: 15px 0 0; /* Adjust spacing above the paragraph */
+    margin: 0px 0 0; /* Adjust spacing above the paragraph */
     text-align: left; /* Left-align the paragraph */
 }
 
@@ -616,6 +623,38 @@ html, body {
 }
 
 /* Properties Section (if applicable) */
+
+.section-container {
+    display: flex;
+    flex-direction: row; /* Ensures it remains a horizontal layout */
+    justify-content: space-between; /* Spaces items properly */
+    align-items: center; /* Aligns items vertically */
+    gap: 30px; /* Adds spacing between left and right sections */
+    max-width: 1200px; /* Prevents it from stretching too wide */
+    margin: 0 auto; /* Centers content */
+    padding: 10px 20px; /* Adds spacing */
+}
+
+.section-left {
+    flex: 1; /* Ensures it takes available space */
+    max-width: 1000px; /* Prevents it from getting too wide */
+    text-align: left; /* Aligns text properly */
+    padding-left: 5%
+}
+
+@media (max-width: 768px) {
+    .section-container {
+        flex-direction: column; /* Stacks elements vertically */
+        align-items: flex-start; /* Keeps text aligned left */
+    }
+
+    .section-left {
+        max-width: 100%; /* Expands full width */
+        text-align: left;
+    }
+}
+
+
 .properties h2 {
     color: #183866; /* Accent color for section headings */
     margin-bottom: 20px;
@@ -764,9 +803,12 @@ html, body {
 
 .properties-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
     gap: 20px;
+    max-width: 90%; /* Limits extreme stretching */
+    margin: 0 auto;
 }
+
 
 .property-card {
     background-color: #fff;
@@ -890,8 +932,10 @@ html, body {
 }
 
 .property-details {
-    flex: 1;
-    text-align: left;
+    max-width: 900px; /* Prevent text from being too stretched */
+    width: 90%; /* Makes it flexible */
+    margin: 0 auto; /* Centers it properly */
+    padding: 0 5%; /* Adds a proportional left/right padding */
 }
 
 .property-image {
@@ -1162,19 +1206,34 @@ html, body {
 .property-gallery {
     padding: 50px 20px;
     text-align: center;
-}
+} 
 
+/* Standardized Property Gallery Grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptive grid layout */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ensures 3 columns while being responsive */
+    gap: 15px; /* Space between images */
+    justify-content: start; /* Aligns items to the left */
+    align-items: center;
+    padding: 20px 0; /* Keeps top/bottom padding */
+    margin-left: 20%;
+    margin-right: 20%; /* Creates buffer from the left to match the subheading */
+    max-width: 75%; /* Keeps the gallery from spreading too wide */
 }
 
+/* Gallery Images */
 .gallery-item img {
-    width: 100%; /* Responsive image width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;  /* Ensures all images fit their grid cell */
+    height: 200px; /* Standardized height */
+    object-fit: cover; /* Ensures images fill the space properly */
+    border-radius: 5px; /* Optional: Rounded corners */
+    cursor: pointer; /* Indicates clickability */
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect for gallery images */
+.gallery-item img:hover {
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 

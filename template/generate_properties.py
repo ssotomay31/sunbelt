@@ -16,8 +16,9 @@ input_csv = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/data/sunbelt.cs
 output_dir = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/properties"
 template_path = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/template/property_template.html"
 
-# Cloudinary Base URL
-cloudinary_base_url = "https://res.cloudinary.com/dnculoaat/image/upload/property_img/"
+# Cloudinary Base URLs
+thumbnail_base_url = "https://res.cloudinary.com/dnculoaat/image/upload/property_img/"
+gallery_base_url = "https://res.cloudinary.com/dnculoaat/image/upload/property_pages_imgs/"
 
 # Ensure the output directory exists
 if not os.path.exists(output_dir):
@@ -38,7 +39,7 @@ with open(template_path, "r") as template_file:
 print("DEBUG: Checking if {{THUMBNAIL_IMG}} exists in template:", "{{THUMBNAIL_IMG}}" in html_template)
 
 # Read data from CSV and generate HTML files
-with open(input_csv, "r") as csv_file:
+with open(input_csv, "r", encoding="utf-8-sig") as csv_file:
     reader = csv.DictReader(csv_file)
 
     for row in reader:
@@ -47,31 +48,34 @@ with open(input_csv, "r") as csv_file:
             print(f"⚠️ WARNING: Skipping row due to missing columns: {row}")
             continue
 
-        # Generate property-specific name format
+        # Generate property-specific name format (remove spaces, commas, and periods)
         property_name = row["name"].lower().replace(" ", "").replace(",", "").replace(".", "")
 
         # Cloudinary Thumbnail Image
         thumbnail_img = row["img"].strip() if row["img"] else "default.jpg"
-        thumbnail_url = f"{cloudinary_base_url}{thumbnail_img}"
+        thumbnail_url = f"{thumbnail_base_url}{thumbnail_img}"
 
         # Debugging: Ensure URL is formatted correctly
         print(f"DEBUG: Thumbnail URL for {property_name}: {thumbnail_url}")
 
-        # Fetch all images from Cloudinary folder
+        # Fetch all gallery images from Cloudinary
         try:
             response = cloudinary.api.resources(
                 type="upload",
-                prefix=f"property_img/{property_name}/",
+                prefix=f"property_pages_imgs/{property_name}/",  # Correct folder path
                 max_results=50
             )
 
-            # Get all image URLs, sorted alphabetically
+            # Get sorted list of image URLs
             gallery_images = sorted(
                 [img["secure_url"] for img in response["resources"]]
             )
 
+            if not gallery_images:
+                print(f"⚠️ WARNING: No images found for {property_name}. Check Cloudinary.")
+
         except Exception as e:
-            print(f"⚠️ WARNING: Error fetching images for {property_name}: {e}")
+            print(f"⚠️ ERROR: Unable to fetch gallery images for {property_name}: {e}")
             gallery_images = []
 
         # Generate Gallery HTML
@@ -80,7 +84,7 @@ with open(input_csv, "r") as csv_file:
             f'<img src="{img}" alt="{row["name"]}" loading="lazy">'
             f'</div>'
             for img in gallery_images
-        ) if gallery_images else '<p>No images available.</p>'
+        ) if gallery_images else '<p> No images available for this property.</p>'
 
         # Replace placeholders in the template
         page_content = html_template.replace("{{PROPERTY_NAME}}", row["name"])
