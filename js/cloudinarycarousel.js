@@ -1,84 +1,57 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const cloudinaryBaseURL = "https://res.cloudinary.com/dnculoaat/image/upload/";
-    const cloudinaryFolder = "carousel"; // Cloudinary folder where images are stored
+    const API_URL = "http://localhost:5001/fetch-carousel-images";
 
-    async function fetchCarouselImages() {
-        try {
-            // Fetch images from Cloudinary using the Admin API
-            const response = await fetch(`https://api.cloudinary.com/v1_1/dnculoaat/resources/image/upload?prefix=${cloudinaryFolder}/&max_results=10`, {
-                headers: {
-                    "Authorization": "Basic " + btoa("252441168754462:RP9Goo7Ltm48WjV8Lx1RhmCFaDI") // Use API credentials
-                }
-            });
+    try {
+        const response = await fetch(API_URL);
+        const images = await response.json();
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const data = await response.json();
-
-            // Extract latest versioned URLs from the response
-            const images = data.resources.map(img => img.secure_url);
-
-            return images;
-        } catch (error) {
-            console.error("❌ ERROR: Failed to fetch images from Cloudinary:", error);
-            return [];
-        }
-    }
-
-    async function loadCarousel() {
-        const images = await fetchCarouselImages();
-        if (images.length === 0) {
+        if (!images || images.length === 0) {
             console.error("❌ ERROR: No images found for the carousel.");
             return;
         }
 
-        const carousel = document.getElementById("projectCarousel");
-        const dotsContainer = document.getElementById("carouselDots");
-        let currentSlide = 0;
-        const slideInterval = 5000; // Auto-scroll interval
+        const formattedImages = images.map(img => img.secure_url);
+        loadCarousel(formattedImages);
+    } catch (error) {
+        console.error("❌ ERROR: Failed to load images:", error);
+    }
+});
 
-        // Load images dynamically
-        carousel.innerHTML = images
-            .map((src, index) =>
-                `<div class="carousel-slide ${index === currentSlide ? "active" : ""}">
-                    <img src="${src}" alt="Project ${index + 1}">
-                </div>`
-            )
-            .join("");
+function loadCarousel(images) {
+    const carousel = document.getElementById("projectCarousel");
+    const dotsContainer = document.getElementById("carouselDots");
 
-        // Generate navigation dots
-        dotsContainer.innerHTML = images
-            .map((_, index) =>
-                `<span class="carousel-dot ${index === currentSlide ? "active" : ""}" data-index="${index}"></span>`
-            )
-            .join("");
+    let currentSlide = 0;
+    const slideInterval = 5000;
 
-        document.querySelectorAll(".carousel-dot").forEach(dot => {
-            dot.addEventListener("click", () => {
-                currentSlide = parseInt(dot.getAttribute("data-index"));
-                updateCarousel();
-            });
+    carousel.innerHTML = images.map(
+        (src, index) => `<div class="carousel-slide ${index === 0 ? "active" : ""}">
+                            <img src="${src}" alt="Carousel Image ${index + 1}">
+                         </div>`
+    ).join("");
+
+    dotsContainer.innerHTML = images.map(
+        (_, index) => `<span class="carousel-dot ${index === 0 ? "active" : ""}" data-index="${index}"></span>`
+    ).join("");
+
+    document.querySelectorAll(".carousel-dot").forEach(dot => {
+        dot.addEventListener("click", () => {
+            currentSlide = parseInt(dot.getAttribute("data-index"));
+            updateCarousel(images, currentSlide);
         });
+    });
 
-        function updateCarousel() {
-            document.querySelectorAll(".carousel-slide").forEach((slide, index) => {
-                slide.classList.toggle("active", index === currentSlide);
-            });
-
-            document.querySelectorAll(".carousel-dot").forEach((dot, index) => {
-                dot.classList.toggle("active", index === currentSlide);
-            });
-        }
-
-        function autoScroll() {
-            currentSlide = (currentSlide + 1) % images.length;
-            updateCarousel();
-        }
-
-        setInterval(autoScroll, slideInterval);
+    function updateCarousel(images, index) {
+        document.querySelectorAll(".carousel-slide").forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+        });
+        document.querySelectorAll(".carousel-dot").forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+        });
     }
 
-    loadCarousel();
-});
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % images.length;
+        updateCarousel(images, currentSlide);
+    }, slideInterval);
+}
