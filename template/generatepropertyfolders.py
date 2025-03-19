@@ -2,8 +2,8 @@ import os
 import csv
 
 # Paths
-input_csv = "/Users/sebastiansotomayor/Desktop/sunbeltweb/data/sunbelt.csv"
-gallery_base_dir = "/Users/sebastiansotomayor/Desktop/sunbeltweb/images/property_pages_imgs"
+input_csv = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/data/sunbelt.csv"
+gallery_base_dir = "/Users/sebastiansotomayor/Desktop/sunbeltwebpublish/images/property_pages_imgs"
 
 # Ensure the gallery base directory exists
 if not os.path.exists(gallery_base_dir):
